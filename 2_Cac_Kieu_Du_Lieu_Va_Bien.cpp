@@ -4,14 +4,18 @@
 using namespace std;
 
 /*
-Kieu du lieu so nguyen : 
+Kieu du lieu so nguyen co dau:
+    short : kich thuoc duoi 65000
     int(4 byte) : kich thuoc [-2.10^9, 2.10^9]
+    long 
     long long(8 byte) : kich thuoc [-9.10^18, 9.10^18]
-Kieu du lieu so thuc : 
-    float(4 byte, 6 so thap phan) 
+Kieu du lieu so thuc co dau: 
+    float(4 byte, 7 so thap phan) 
     double(8 byte, 15 so thap phan)
 Kieu du lieu ky tu : 
     char(1 byte, 1 ky tu), dung dau ' ' 
+Kieu du lieu khong dau:
+    Chi can them unsigned truoc kieu du lieu tuong ung
 Kieu du lieu Boole :
     True/False(1 byte), in ra 1 hoac 0
 */
