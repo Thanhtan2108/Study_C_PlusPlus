@@ -34,7 +34,16 @@ void in(int a[][100], int n, int m) {
 int main() {
     int a[2][3];
     //
+    int mang2chieubang0 [][100] = {0};
+    //
     int b[2][3] = {{1,2,3}, {3,4,5}};
+    //
+    int mang2chieu[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+
     //
     int n, m; 
     cin >> n >> m;

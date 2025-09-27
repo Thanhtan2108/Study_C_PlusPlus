@@ -10,6 +10,7 @@ Nếu thay đổi giá trị của tham số truyền vào hàm, hàm sẽ báo 
 using namespace std;
 
 string fullName (const string &firstName, const string &lastName) {
+    // firstName = "bbczz"; => báo lỗi vì firstName đã được khai báo là 1 hằng số
     return firstName + lastName;
 }
 
