@@ -30,10 +30,21 @@ Ham duoc chay trong main hoac trong 1 ham khac
 Can chu y kieu du lieu tra ve cua ham va cac tham so cua ham de tranh bi loi tran so
 
 Co 2 cach truyen tham so vao ham la truyen tham chieu va truyen tham tri:
-- Truyen tham chieu: truyen dia chi (&) cua bien vao ham, khi thay doi gia tri cua bien trong ham thi bien ngoai cung thay doi theo => tham so cua ham la dia chi cua doi so
-    Thường dùng cho 1 hàm thực hiện 1 chức năng thay đổi/cập nhật thông tin nào đó
-    Hàm sẽ lấy trực tiếp giá trị của tham số được truyền vào mà không tạo thêm biến
+- Truyen tham chieu: có 3 kiểu truyền tham chiếu
+    1. truyền con trỏ (kiểu_dữ_liệu* biến) của biến vào hàm, hàm sẽ tạo thêm 1 biến là bản sao để chứa biến con trỏ
+    các giá trị tính toán trong hàm chỉ làm thay đổi giá trị/địa chỉ của biến con trỏ trong hàm chứ không làm thay đổi giá trị/địa chỉ của biến đối số truyền vào hàm
+    khi gọi hàm, đối số phải truyền vào cho hàm là địa chỉ của biến
+    => giống kiểu truyền tham trị
+
+    2. truyen dia chi (kiểu_dữ_liệu &biến) cua bien vao ham, hàm sẽ không tạo thêm biến mà trực tiếp tham chiếu đến biến gốc để lấy giá trị
+    khi thay doi gia tri/điacj chỉ cua bien trong ham thi bien ngoai cung thay doi theo => tham so cua ham la dia chi cua doi so truyền vào
     => Tiết kiệm được bộ nhớ
+    Thường dùng cho 1 hàm thực hiện 1 chức năng thay đổi/cập nhật thông tin nào đó
+    khi gọi hàm, đối số phải truyền vào cho hàm là biến bình thường
+
+    3. Muốn truyền 1 biến vào hàm để thực hiện xử lý, tính toán cho các biến khác mà không làm thay đổi giá trị của biến tham số truyền vào
+    Truyền như cách 2 nhưng dùng thêm keyword const
+    khi gọi hàm, đối số truyền vào hàm là 1 biến bình thường
 
 - Truyen tham tri: truyen gia tri cua bien vao ham, khi thay doi gia tri cua bien trong ham thi bien ngoai cung khong thay doi => tham so cua ham la gia tri cua doi so
     trong hàm sẽ được tạo thêm 1 biến để lưu giá trị của tham số truyền vào để tính toán
@@ -84,8 +95,7 @@ void in(int a) { // a dgl tham so cua ham
     cout << "In ra " << a << endl;
 }
 
-int tinhTong(int a, int b) {
-    cout << a << b << endl;
+inline int tinhTong(int a, int b) {
     return a+b;
 }
 
@@ -94,12 +104,21 @@ bool kiemTraChanLe(int n) {
     return n % 2 == 0; // tra ve true neu n chan, false neu n le
 }
 
-void truyenthamchieu(int &a) {
+void truyenthamchieu1(int* a) {
     a += 10;
 }
 
-void truyenthamtri(int a) {
+void truyenthamchieu2(int &a) {
     a += 10;
+}
+
+int truyenthamchieu3(const int &a) {
+    // a += 10; => gây lỗi do cố định a, dùng cho mục đích đưa giá trị a và hàm để tính toán các giá trị khác nhưng không làm a thay đổi giá trị
+    return a + 10;
+}
+
+int truyenthamtri(int a) {
+    return a += 15;
 }
 
 int main() {
@@ -122,13 +141,20 @@ int main() {
 
     // call function truyenthamhchieu
     int n = 20;
-    truyenthamchieu(n);
-    cout << n << endl; // n = 30, thay doi gia tri cua n vi doi so n va tham so a nam cung o nho luu cung gia tri
+    truyenthamchieu1(&n);
+    cout << "Truyen tham chieu1: " << n << endl;
+
+    truyenthamchieu2(n);
+    cout << "Truyen tham chieu2: " << n << endl; 
+    int kq = truyenthamchieu3(n);
+    cout << "Truyen tham chieu3: " << kq << endl;
+    cout << "Gia tri cua n sau truyenthamchieu3: " << n << endl;
 
     // call function truyenthamtri
-    int m = 20;
-    truyenthamtri(m);
-    cout << m << endl; // m = 20, khong thay doi gia tri cua m vi doi so m va tham so a nam o 2 o nho luu 2 gia tri khac nhau
-    
+    int m = 10;
+    int res = truyenthamtri(m);
+    cout << "Ket qua sau khi truyenthamtri m vao ham: " << res << endl;
+    cout << "m Sau khi truyenthamtri: " << m << endl; // m = 20, khong thay doi gia tri cua m vi doi so m va tham so a nam o 2 o nho luu 2 gia tri khac nhau
+
     return 0;
 }

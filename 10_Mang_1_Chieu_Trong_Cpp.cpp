@@ -8,6 +8,10 @@ Có thể khở tạo mảng có giá trị của phần tử trước
         kiểu_dữ_liệu tên_mảng[số_phần_tử_trong_mảng] = {giá trị phần tử};
 
 Truy cập đến giá trị các phần tử trong mảng thông qua index bắt đầu từ 0
+
+Có thể khởi tạo cùng 1 giá trị cho toàn bộ các phần tử trong mảng bằng hàm fill()
+    fill(tên_mảng, tên_mảng + số_lượng_phần_tử_mảng, giá_trị);
+    lưu ý: fill chỉ khởi tạo cho các phần tử nằm liền kề nhau bên trong bộ nhớ, nằm rời rạc không thể khỏi tạo
 */
 
 #include <bits/stdc++.h>

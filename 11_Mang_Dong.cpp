@@ -13,6 +13,9 @@ Khi nào dùng mảng tĩnh/mảng động?
     Nếu như ta chưa biết trước được số lượng phần tử trong mảng cho đến khi ta nhập vào số lượng phần tử thì dùng mảng động=> vừa fit với dữ liệu, tránh lãng phí bộ nhớ
 
 Xử lý với mảng động cũng như mảng tĩnh
+
+Sau khi xử lý xong thì cần giải phóng bộ nhớ
+    khởi tạo mảng bằng new thì giải phóng bằng delete[] và gán con trỏ về null
 */
 
 #include <iostream>
@@ -36,5 +39,9 @@ int main() {
         cout << otherArray[i] << " " << endl;
     }
     
+    // giải phóng bộ nhớ
+    delete[] otherArray;
+    otherArray = nullptr;
+
     return 0;
 }

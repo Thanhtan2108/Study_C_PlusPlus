@@ -8,7 +8,12 @@ Có thể tạo ma trận không cần phải biết trước số hàng nhưng 
 
 Muốn lưu mỗi dòng có số lượng phần tử khác nhau thì có thể dùng vecto
     vector<kiểu_dữ_liệu> tên_mảng[số_phần_tử];
+
+Có thể khởi tạo cùng 1 giá trị cho toàn bộ các phần tử trong mảng bằng hàm fill()
+    fill(tên_mảng[0], tên_mảng[0] + [phần_tử_hàng]*[phần_tử_cột], giá_trị);
+    lưu ý: fill chỉ khởi tạo cho các phần tử nằm liền kề nhau bên trong bộ nhớ, nằm rời rạc không thể khỏi tạo
 */
+
 #include <bits/stdc++.h>
 
 using namespace std;
