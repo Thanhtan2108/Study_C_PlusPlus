@@ -18,7 +18,7 @@ Cấp phát động bằng new cho mảng đã khai báo
     }
 
 Sau khi xử lý xong thì cần giải phóng bộ nhớ
-    khởi tạo mảng bằng new thì giải phóng bằng delete[] và gán con trỏ về null
+    khởi tạo mảng bằng new thì giải phóng bằng delete[] tên_con_trỏ và gán con trỏ về null
 
 */
 
