@@ -1,4 +1,9 @@
 /*
+Tính đóng gói - Encapsulation
+
+Gói gọn tất cả thông tin của đối tượng vào 1 class
+Class phải được ẩn toàn bộ các thuộc tính của đối tượng và không được phép truy xuất các thuộc tính từ bên ngoài vào
+
 Tất cả thông tin cùng các hành động của đối tượng được gói gọn lại trong 1 class
 thường các thuộc tính sẽ là private
 các phương thức sẽ là public
@@ -26,9 +31,17 @@ Private:
 Public:
     cho phép truy cập đến các phương thức bên ngoài class
 
+Getter & Setter, được định nghĩa trong public để cung cấp phương thức cho bên ngoài có thể truy cập vào thuộc tính private của đối tượng
     nếu muốn thay đổi giá trị cho 1 thuộc tính cụ thể nào đó đã là private thì cần xây dựng hàm set để thay đổi
 
     nếu muốn lấy giá trị của 1 thuộc tính cụ thể nào đó đã là private thì cần xây dựng hàm get để lấy giá trị
+
+Có 2 dạng biến/hàm cho Class và Object
+    nếu khai báo 1 biến/hàm thêm static vào trước kiểu_dữ_liệu thì đó là biến/hàm đó đại diện cho Class, tất cả các Object được tạo ra từ Class này đều mang giá trị chung của biến/hàm static này
+    Nếu biến/hàm này được thay đổi thì tất cả các Object thuộc Class đều thay đổi giá trị biến/hàm này theo
+    Muốn khởi tạo giá trị cho biến static này cần truy cập thông qua tên Class và khởi tạo bên ngoài Class
+
+    Nếu khai báo 1 biến/hàm như bình thường thì nó là biến thuộc Object.
 */
 
 #include <iostream>
@@ -52,10 +65,10 @@ public:
         cout << "Call 1 para constructor" << endl;
         strncpy(this->name, name, 99);
         this->name[99] = '\0';
-        this -> address[0] = '\0';
-        this -> ID[0] = '\0';
-        this -> age = 0;
-        this -> mark = 0;
+        this->address[0] = '\0';
+        this->ID[0] = '\0';
+        this->age = 0;
+        this->mark = 0;
     }
 
     Student(char *name, int age) {

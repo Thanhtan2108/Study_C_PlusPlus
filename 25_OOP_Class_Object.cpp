@@ -9,8 +9,8 @@ Cú pháp tạo class
     };
     
     Tên_class thường là Danh từ hoặc cụm danh từ, được viết hoa các chữ cái đầu
-    các thông tin của đối tượng (các biến) đgl thuộc tính của đối tượng
-    các hành động của đối tượng (các hàm) đgl phương thức của đối tượng
+    các thông tin của đối tượng (các biến) đgl thuộc tính của đối tượng, biểu thị đặc điểm của đối tượng
+    các hành động của đối tượng (các hàm) đgl phương thức của đối tượng, biểu thị hành vi/hành động của đối tượng
 
 Cú pháp truy cập đến thành phần trong class, tương tự như struct, dùng dấu " . " để truy cập
 
@@ -19,6 +19,10 @@ thì các thành phần trong class phải được chỉ định là public th�
 nếu không chỉ định thì các thành phần bên trong class sẽ là private và chỉ được truy cập bên trong class đó
 
 Tạo Object (đối tượng) được sinh ra từ class, class là kiểu dữ liệu do người dùng tự định nghĩa
+    Thường object được khởi tạo thông qua bộ nhớ động => new
+        tên_Class *tên_Object = new tên_constructor;
+    hoặc khai báo tĩnh
+        tên_Class tên_Object;
 */
 
 #include <iostream>
