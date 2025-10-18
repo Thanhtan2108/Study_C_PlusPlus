@@ -11,11 +11,12 @@ Cách đọc vào chuỗi ký tự có dấu cách
     Cần phải xử lý chuỗi chứa khoảng trắng
     Nếu không xử lý khoảng trắng thì chỉ nhận đến khi khoảng trắng xuất hiện
 
-    Để xử lý và cho phép đọc vào khoảng trắng
-    Dùng cin.getline(tên_mảng_chứa_ký_tự, số_phần_tử_mảng - 1));
-
 Trước khi nhập chuỗi cho mảng, cần xử lý ký tự enter từ bàn phím khi có nhập gì đó trước đó
     Dùng cin.ignore(); để bỏ qua ký tự enter vầ cho phép nhập chuỗi
+    Dùng sau lệnh cin/cout mỗi khi có ký tự \n để xóa ký tự \n trước khi nhập chuỗi có khoảng trắng
+
+Sau khi xử lý \n và cho phép đọc vào khoảng trắng
+    Dùng cin.getline(tên_mảng_chứa_ký_tự, số_phần_tử_mảng - 1));
 */
 
 #include <iostream>
